@@ -53,7 +53,6 @@ function playMultipleRounds() {
     let playerInput = playerMove();
     let computerInput = computerMove();
 
-    console.log(computerInput + ' ' + playerInput);
     let roundWinner = playRound(computerInput, playerInput);
 
     if (roundWinner === 1) {
@@ -65,14 +64,32 @@ function playMultipleRounds() {
     } else {
       console.log(`Its a tie. You both had ${playerInput}`);
       ties += 1;
+
+      // if its a tie redo match by decrementing loop counter
       i--;
     }
-
-    console.log(i);
   }
 
   return [playerWins, computerWins, ties];
 }
+
+function matchSummary() {
+  let results = playMultipleRounds();
+
+  if (results[0] > results[1]) {
+    console.log(`Congrats you won the match!
+                You won ${results[0]} matches.
+                Computer won ${results[1]}
+                Number of ties ${results[2]}`);
+  } else {
+    console.log(`Sorry you lost the match.
+                You won ${results[0]} matches.
+                Computer won ${results[1]} matches
+                Number of ties ${results[2]}`);
+  }
+}
+
+matchSummary();
 
 // Rock beats scissors
 // Paper beats rock
