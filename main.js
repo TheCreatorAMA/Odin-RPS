@@ -16,38 +16,63 @@ function playerMove() {
 }
 
 function playRound(computerInput, playerInput) {
+  // If user wins return 1 if computer wins return 0 and if tie return -1
   if (playerInput == 'rock') {
     if (computerInput == 'paper') {
-      return 'Paper beats Rock! You lost';
+      return 0;
     } else if (computerInput == 'scissors') {
-      return 'You won! Rock beats Scissors';
+      return 1;
     } else {
-      return 'You both had Rock, its a tie';
+      return -1;
     }
   } else if (playerInput == 'paper') {
     if (computerInput == 'scissors') {
-      return 'Scissors beats Paper! You lost';
+      return 0;
     } else if (computerInput == 'rock') {
-      return 'You won! Paper beats Rock';
+      return 1;
     } else {
-      return 'You both had Paper, its a tie';
+      return -1;
     }
   } else {
     if (computerInput == 'rock') {
-      return 'Rock beats Scissors! You lost';
+      return 0;
     } else if (computerInput == 'paper') {
-      return 'You won! Scissors beats Paper';
+      return 1;
     } else {
-      return 'You both had Scissors, its a tie';
+      return -1;
     }
   }
 }
 
-let playerInput = playerMove();
-let computerInput = computerMove();
+function playMultipleRounds() {
+  let computerWins = 0;
+  let playerWins = 0;
+  let ties = 0;
 
-console.log(computerInput + ' ' + playerInput);
-console.log(playRound(computerInput, playerInput));
+  for (let i = 0; i < 5; i++) {
+    let playerInput = playerMove();
+    let computerInput = computerMove();
+
+    console.log(computerInput + ' ' + playerInput);
+    let roundWinner = playRound(computerInput, playerInput);
+
+    if (roundWinner === 1) {
+      console.log(`You won! ${playerInput} beats ${computerInput}`);
+      playerWins += 1;
+    } else if (roundWinner === 0) {
+      console.log(`You lost.. ${computerInput} beats ${playerInput}`);
+      playerWins += 1;
+    } else {
+      console.log(`Its a tie. You both had ${playerInput}`);
+      ties += 1;
+      i--;
+    }
+
+    console.log(i);
+  }
+
+  return [playerWins, computerWins, ties];
+}
 
 // Rock beats scissors
 // Paper beats rock
