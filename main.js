@@ -89,7 +89,7 @@ function matchSummary() {
   }
 }
 
-matchSummary();
+// matchSummary();
 
 // Rock beats scissors
 // Paper beats rock
