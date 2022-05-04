@@ -13,7 +13,35 @@ body {
 
 .content {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  flex: 1;
+  width: 100%;
+}
+
+.content-pictures {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-interface {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
+}
+
+.button-group {
+  display: flex;
+}
+
+.score-board {
+  display: flex;
+}
+
+.human-score {
+}
+
+.computer-score {
 }
