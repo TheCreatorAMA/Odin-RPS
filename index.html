@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./main.js"></script>
+    <script src="./main.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
     <title>Odin RPS</title>
   </head>
@@ -20,15 +20,24 @@
         <div><p>VS</p></div>
         <div>🤖</div>
       </div>
+      <div class="round-info">
+        <p class="round-message">Click a button to make a move!</p>
+      </div>
       <div class="content-interface">
         <div class="button-group">
-          <button>🪨</button>
-          <button>📄</button>
-          <button>✂️</button>
+          <button class="game-button" id="rock">🪨</button>
+          <button class="game-button" id="paper">📄</button>
+          <button class="game-button" id="scissors">✂️</button>
         </div>
-        <div class="score-board">
-          <div class="human-score">Human Score</div>
-          <div class="computer-score">Computer Score</div>
+        <div class="info-board">
+          <div class="moves">
+            <div class="player-move"><p class="player-move-text" id="human-move"></p></div>
+            <div class="player-move"><p class="player-move-text" id="computer-move"></p></div>
+          </div>
+          <div class="score-board">
+            <div class="score" id="human-score">0</div>
+            <div class="score" id="computer-score">0</div>
+          </div>
         </div>
       </div>
     </div>

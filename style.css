@@ -36,8 +36,11 @@ body {
   display: flex;
 }
 
-.score-board {
+.info-board {
   display: flex;
+}
+
+.score-board {
 }
 
 .human-score {

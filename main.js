@@ -1,18 +1,39 @@
 const possibleMoves = ['rock', 'paper', 'scissors'];
+let playerMove = '';
+let computerMove = '';
+let playerScore = 0;
+let computerScore = 0;
 
-function computerMove() {
+const buttons = document.querySelectorAll('.game-button');
+const playerMoveText = document.querySelector('#human-move');
+const computerMoveText = document.querySelector('#computer-move');
+const playerScoreLabel = document.querySelector('#human-score');
+const computerScoreLabel = document.querySelector('#computer-score');
+const scores = document.querySelectorAll('.score');
+const roundMessage = document.querySelector('.round-message');
+
+scores.forEach((score) => {
+  score.addEventListener('change', (e) => {
+    console.log('score changed');
+  });
+});
+
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    playerMove = e.target.id;
+    computerMove = getComputerMove();
+
+    playerMoveText.textContent = `${playerMove}`;
+    computerMoveText.textContent = `${computerMove}`;
+    let message = determineWinner(playRound(computerMove, playerMove));
+
+    roundMessage.textContent =
+      computerScore === 5 ? 'Computer Won The Game!' : playerScore === 5 ? 'You Won The Game!' : message;
+  });
+});
+
+function getComputerMove() {
   return possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
-}
-
-function playerMove() {
-  const input = prompt('Rock, Paper or Scissors: ').toLowerCase();
-
-  if (possibleMoves.includes(input)) {
-    return input;
-  } else {
-    alert('Invalid move, must be Rock, Paper or Scissors');
-    return;
-  }
 }
 
 function playRound(computerInput, playerInput) {
@@ -44,48 +65,17 @@ function playRound(computerInput, playerInput) {
   }
 }
 
-function playMultipleRounds() {
-  let computerWins = 0;
-  let playerWins = 0;
-  let ties = 0;
-
-  for (let i = 0; i < 5; i++) {
-    let playerInput = playerMove();
-    let computerInput = computerMove();
-
-    let roundWinner = playRound(computerInput, playerInput);
-
-    if (roundWinner === 1) {
-      console.log(`You won! ${playerInput} beats ${computerInput}`);
-      playerWins += 1;
-    } else if (roundWinner === 0) {
-      console.log(`You lost.. ${computerInput} beats ${playerInput}`);
-      playerWins += 1;
-    } else {
-      console.log(`Its a tie. You both had ${playerInput}`);
-      ties += 1;
-
-      // if its a tie redo match by decrementing loop counter
-      i--;
-    }
-  }
-
-  return [playerWins, computerWins, ties];
-}
-
-function matchSummary() {
-  let results = playMultipleRounds();
-
-  if (results[0] > results[1]) {
-    console.log(`Congrats you won the match!
-                You won ${results[0]} matches.
-                Computer won ${results[1]}
-                Number of ties ${results[2]}`);
+function determineWinner(value) {
+  if (value === 0) {
+    computerScore++;
+    computerScoreLabel.textContent = `${computerScore}`;
+    return 'Computer Won this round.';
+  } else if (value === 1) {
+    playerScore++;
+    playerScoreLabel.textContent = `${playerScore}`;
+    return 'You Won this Round';
   } else {
-    console.log(`Sorry you lost the match.
-                You won ${results[0]} matches.
-                Computer won ${results[1]} matches
-                Number of ties ${results[2]}`);
+    return 'Tie';
   }
 }
 
