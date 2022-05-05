@@ -1,3 +1,8 @@
+p,
+h3 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -20,31 +25,82 @@ body {
   width: 100%;
 }
 
+.content-top {
+}
+
 .content-pictures {
   display: flex;
+  flex: 1;
   justify-content: space-around;
+  align-items: center;
+}
+
+.content-pictures div {
+  font-size: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  gap: 65%;
+}
+
+.score {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 100px;
+}
+
+.human-score {
+  margin-left: 50px;
+}
+
+.computer-score {
+}
+
+.round-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.round-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 32px;
+  font-weight: 1000;
+}
+
+.moves {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.player-move {
 }
 
 .content-interface {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex: 1;
 }
 
 .button-group {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.info-board {
-  display: flex;
-}
-
-.score-board {
-}
-
-.human-score {
-}
-
-.computer-score {
+.game-button {
+  width: 200px;
+  height: 125px;
+  font-size: 50px;
 }
