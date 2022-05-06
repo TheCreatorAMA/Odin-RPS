@@ -10,7 +10,7 @@ const computerMoveText = document.querySelector('#computer-move');
 const playerScoreLabel = document.querySelector('#human-score');
 const computerScoreLabel = document.querySelector('#computer-score');
 const scores = document.querySelectorAll('.score');
-const roundMessage = document.querySelector('.round-message');
+const roundMessage = document.querySelector('#round-message');
 
 scores.forEach((score) => {
   score.addEventListener('change', (e) => {

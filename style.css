@@ -1,6 +1,11 @@
 p,
 h3 {
   font-family: 'Courier New', Courier, monospace;
+  color: #ade8f4;
+}
+
+p {
+  margin: 0;
 }
 
 body {
@@ -8,12 +13,14 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #0077b6;
 }
 
 .header {
   display: flex;
   justify-content: center;
-  background-color: blue;
+  background-color: #03045e;
+  box-shadow: 0px 12px 8px 5px #03045e;
 }
 
 .content {
@@ -26,6 +33,9 @@ body {
 }
 
 .content-top {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
 }
 
 .content-pictures {
@@ -44,26 +54,20 @@ body {
 .score-board {
   display: flex;
   justify-content: center;
-  gap: 65%;
+  gap: 60%;
 }
 
 .score {
   font-family: 'Courier New', Courier, monospace;
   font-size: 100px;
-}
-
-.human-score {
-  margin-left: 50px;
-}
-
-.computer-score {
+  color: #ade8f4;
 }
 
 .round-info {
   display: flex;
   flex-direction: column;
   flex: 1;
-  justify-content: stretch;
+  justify-content: space-evenly;
   align-items: stretch;
 }
 
@@ -71,27 +75,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   font-size: 32px;
   font-weight: 1000;
+  color: #ade8f4;
 }
 
 .moves {
   display: flex;
-  flex: 1;
   justify-content: space-evenly;
   align-items: center;
+  height: 32px;
+  max-height: 32px;
 }
 
 .player-move {
+  font-size: 65px;
 }
 
 .content-interface {
+  box-shadow: 0px -12px 8px 5px #023e8a;
+  background-color: #023e8a;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: stretch;
-  flex: 1;
+  flex: 1 0 auto;
 }
 
 .button-group {
@@ -100,7 +108,19 @@ body {
 }
 
 .game-button {
+  background-color: #03045e;
+  border: 0;
+  border-radius: 25px;
   width: 200px;
   height: 125px;
   font-size: 50px;
+  transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in, transform 0.2s ease-in;
+  transform: scale(1);
+}
+
+.game-button:hover {
+  transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in, transform 0.2s ease-in;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px 8px #b63f00;
+  background-color: #0077b6;
 }
